@@ -16,7 +16,7 @@ packer.startup(
 }
    use 'folke/tokyonight.nvim'
    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-   use 'RRethy/nvim-base16'
+   -- use 'RRethy/nvim-base16'
    use 'wbthomason/packer.nvim'
- use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }  -- 你的插件列表...
+   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }  -- 你的插件列表...
 end)

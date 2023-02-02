@@ -1,14 +1,15 @@
 require("plugins")
 require("basic")
-vim.cmd('colorscheme base16-gruvbox-dark-soft')
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+require("keybindings")
+-- 搜索插件
 local builtin = require('telescope.builtin')
+local status, nvim_tree = pcall(require, "nvim-tree")
+-- 搜索插件 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-local status, nvim_tree = pcall(require, "nvim-tree")
+-- 文件树
 if not status then
     vim.notify("没有找到 nvim-tree")
   return
@@ -31,9 +32,10 @@ require("nvim-tree").setup({
   },
 })
 vim.keymap.set("n", "<Leader>t", ":NvimTreeToggle<CR>", {})
-vim.keymap.set("n", "<Leader>s", ":sp<CR>", { desc = "[S]plit window" })
-vim.keymap.set("n", "<Leader>v", ":vsp<CR>", { desc = "[V]ertically [S]plit window" })
-vim.keymap.set("n", "<Leader>h", "<C-w>h", {})
-vim.keymap.set("n", "<Leader>j", "<C-w>j", {})
-vim.keymap.set("n", "<Leader>k", "<C-w>k", {})
-vim.keymap.set("n", "<Leader>l", "<C-w>l", {})
+-- 主题
+local colorscheme = "tokyonight"
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok then
+  vim.notify("colorscheme " .. colorscheme .. " 没有找到！")
+  return
+end

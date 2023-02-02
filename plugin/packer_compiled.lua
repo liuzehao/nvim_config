@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/Users/zehao.liu/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
-  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/zehao.liu/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
